@@ -1,5 +1,8 @@
 <h1 align="center"><img src="https://i.imgur.com/Ks7oik8.png" width="437" height="180" alt="Queueable"></h1>
 
+# WARNING: THIS IS A FORK OF THE ORIGINIAL slikts/queueable LIBRARY DESIGNED FOR USE WITHIN `@verkehrsministerium/kraftfahrstrasse`.
+# DON'T USE IT IN YOUR PACKAGES
+
 [![License](https://img.shields.io/github/license/slikts/queueable.svg)](https://github.com/slikts/queueable)
 [![Build Status](https://img.shields.io/travis/slikts/queueable/master.svg)](https://travis-ci.org/slikts/queueable)
 [![Coverage Status](https://coveralls.io/repos/github/slikts/queueable/badge.svg?branch=master)](https://coveralls.io/github/slikts/queueable?branch=master)
@@ -58,7 +61,7 @@ https://unpkg.com/queueable/dist/queueable.umd.js
 
 ### [`Channel`][Channel]
 
-Push-pull adapter backed by unbounded linked list queues (to avoid array reindexing) with optional circular buffering. 
+Push-pull adapter backed by unbounded linked list queues (to avoid array reindexing) with optional circular buffering.
 
 Circular buffering works like a safety valve by discarding the oldest item in the queue when the limit is reached.
 
@@ -187,7 +190,7 @@ import { Multicast } from "queueable";
 const queue = new Multicast();
 // subscribe two iterators to receive results
 const subscriberA = queue[Symbol.asyncIterator]();
-const subscriberB = queue[Symbol.asyncIterator](); 
+const subscriberB = queue[Symbol.asyncIterator]();
 queue.push(123);
 const results = Promise.all([subscriberA.next(), subscriberB.next()]);
 console.log(await results); // logs [{ value: 123, done: false }, { value: 123, done: false }]
